@@ -1,0 +1,63 @@
+<web-app id="WebApp_ID" version="2.4"
+         xmlns="http://java.sun.com/xml/ns/j2ee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee
+   http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>index.html</welcome-file>
+        <welcome-file>index.htm</welcome-file>
+    </welcome-file-list>
+
+    <listener>
+        <listener-class>com.noirix.listener.CustomContextListener</listener-class>
+    </listener>
+
+    <servlet>
+        <servlet-name>MainServlet</servlet-name>
+        <servlet-class>com.noirix.controller.FrontController</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>MainServlet</servlet-name>
+        <url-pattern>/FrontController</url-pattern>
+    </servlet-mapping>
+
+<!--    localhost:8080/FrontController-->
+
+    <servlet>
+        <servlet-name>HelloWeb</servlet-name>
+        <jsp-file>/WEB-INF/jsp/hello.jsp</jsp-file>
+    </servlet>
+
+
+    <servlet-mapping>
+        <servlet-name>HelloWeb</servlet-name>
+        <url-pattern>/hello</url-pattern>
+    </servlet-mapping>
+
+
+    <session-config>
+        <session-timeout>10</session-timeout>
+    </session-config>
+
+    <servlet>
+        <servlet-name>indexWeb</servlet-name>
+        <jsp-file>/WEB-INF/jsp/index.jsp</jsp-file>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>indexWeb</servlet-name>
+        <url-pattern>/index.jsp</url-pattern>
+    </servlet-mapping>
+
+</web-app>
+
+        <!--Tomcat -> webapp -> myapp.war -> myapp ->-->
+        <!--META-INF-->
+        <!--WEB-INF (закрытый доступ, напрямую не вытянуть) -> web.xml -> localhost:8080/myapp/hello-->
+        <!--index.html || index.jsp-->
+
+        <!--Servlet = class that operate with http-->
+        <!--Servlet = java class || jsp (.jsp -> .java -> .class -> executing)-->
